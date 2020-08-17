@@ -12,3 +12,55 @@
   [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3991800486639930615)[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-08-17 12:14:40 +0200
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 375)
+DEPRECATION WARNING: autoprefixer-rails was deprected. Migration guide:
+https://github.com/ai/autoprefixer-rails/wiki/Deprecated (called from _app_views_layouts_application_html_erb__2905492938265413416_47022896964880 at /home/felix/code/FelixMZ2018/fluffy-bikes/app/views/layouts/application.html.erb:9)
+[Webpacker] Compiling...
+Started GET "/" for ::1 at 2020-08-17 12:14:44 +0200
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/felix/code/FelixMZ2018/fluffy-bikes/public/packs
+[Webpacker] Hash: b7da353fc1f668589c03
+Version: webpack 4.44.1
+Time: 942ms
+Built at: 08/17/2020 12:14:46 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-c48a5e3e2f7b058b23fd.js    608 KiB  application  [emitted] [immutable]  application
+js/application-c48a5e3e2f7b058b23fd.js.map    746 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-c48a5e3e2f7b058b23fd.js js/application-c48a5e3e2f7b058b23fd.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 1.18 KiB {application} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 472 bytes {application} [built]
+    + 6 hidden modules
+
+Completed 200 OK in 5850ms (Views: 5845.2ms | ActiveRecord: 0.0ms | Allocations: 136576)
+
+
+[Webpacker] Compiled all packs in /home/felix/code/FelixMZ2018/fluffy-bikes/public/packs
+[Webpacker] Hash: b7da353fc1f668589c03
+Version: webpack 4.44.1
+Time: 885ms
+Built at: 08/17/2020 12:14:47 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-c48a5e3e2f7b058b23fd.js    608 KiB  application  [emitted] [immutable]  application
+js/application-c48a5e3e2f7b058b23fd.js.map    746 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-c48a5e3e2f7b058b23fd.js js/application-c48a5e3e2f7b058b23fd.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 1.18 KiB {application} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 472 bytes {application} [built]
+    + 6 hidden modules
+
+Completed 200 OK in 2688ms (Views: 2687.5ms | ActiveRecord: 0.0ms | Allocations: 13024)
+
+
+DEPRECATION WARNING: Using `bin/rake routes` is deprecated and will be removed in Rails 6.1. Use `bin/rails routes` instead.
+ (called from <main> at /home/felix/code/FelixMZ2018/fluffy-bikes/bin/rake:9)
