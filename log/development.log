@@ -429,3 +429,145 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.0ms | Allocations: 10609)
 
 
+DEPRECATION WARNING: SourceAnnotationExtractor is deprecated! Use Rails::SourceAnnotationExtractor instead. (called from <main> at /home/felix/code/FelixMZ2018/fluffy-bikes/bin/rails:9)
+DEPRECATION WARNING: SourceAnnotationExtractor is deprecated! Use Rails::SourceAnnotationExtractor instead. (called from <main> at /home/felix/code/FelixMZ2018/fluffy-bikes/bin/rails:9)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3991800486639930615)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to FixUsers (20200817141630)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3991800486639930615)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3991800486639930615)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to FixUsers (20200817141630)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3991800486639930615)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3991800486639930615)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to FixUsers (20200817141630)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3991800486639930615)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3991800486639930615)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to FixUsers (20200817141630)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "first_name" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "last_name" character varying[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "description" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200817141630"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3991800486639930615)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+Started GET "/" for ::1 at 2020-08-17 16:40:29 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 9981)
+
+
+Started GET "/sign_i" for ::1 at 2020-08-17 16:40:46 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/sign_i"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/sign_in" for ::1 at 2020-08-17 16:40:50 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/felix/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/felix/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.2/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 147)
+  Rendered /home/felix/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1138)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 8.1ms | ActiveRecord: 0.0ms | Allocations: 16491)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-08-17 16:41:05 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"mxPuZqMapPX3Dn5hVwNiJB5saJnmen2g/lr7DzKr6amxqokHUFFr3WsYXw7AU+Kt3cipwtj3C22SADNC8RO0gA==", "user"=>{"email"=>"test@a.de", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "test@a.de"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.4ms | Allocations: 2646)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"mxPuZqMapPX3Dn5hVwNiJB5saJnmen2g/lr7DzKr6amxqokHUFFr3WsYXw7AU+Kt3cipwtj3C22SADNC8RO0gA==", "user"=>{"email"=>"test@a.de", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  Rendering /home/felix/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/felix/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.2/app/views/devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 134)
+  Rendered /home/felix/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1065)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 194ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 12323)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-08-17 16:41:18 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"ovG38tkOPLLssEllRGrOj5RSaL+tW775J0C6BbBaDY2ISNCTKkXzmnCmaArTOk4GV/ap5JPWyDRLGnJIc+JQpA==", "user"=>{"email"=>"test@a.de", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "test@a.de"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.3ms | Allocations: 1877)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"ovG38tkOPLLssEllRGrOj5RSaL+tW775J0C6BbBaDY2ISNCTKkXzmnCmaArTOk4GV/ap5JPWyDRLGnJIc+JQpA==", "user"=>{"email"=>"test@a.de", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  Rendering /home/felix/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/felix/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.2/app/views/devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 134)
+  Rendered /home/felix/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1062)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 211ms (Views: 18.8ms | ActiveRecord: 0.0ms | Allocations: 11079)
+
+
+Started GET "/users/sign_up" for ::1 at 2020-08-17 16:41:35 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/felix/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.2/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/felix/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.2/app/views/devise/shared/_error_messages.html.erb (Duration: 0.3ms | Allocations: 203)
+  Rendered /home/felix/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.2/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 125)
+  Rendered /home/felix/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/devise-4.7.2/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1948)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 12768)
+
+
+Started POST "/users" for ::1 at 2020-08-17 16:41:53 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"1Zh1E8EK0mncBXXbCG/qfcFg3+xKPemL3Te4ZiATT67cyR1MPOBGk1Jwcx1gmUnN//pURd/RvLolRfP1ehQM4g==", "user"=>{"email"=>"Adming@Fluffybikes.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "adming@fluffybikes.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "adming@fluffybikes.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "adming@fluffybikes.com"], ["encrypted_password", "$2a$12$KerDGQWIxNG/Vv/W8hZEv.5yxOntStf3BIqFFC/o94R7v9rCdjgTW"], ["created_at", "2020-08-17 14:41:53.582829"], ["updated_at", "2020-08-17 14:41:53.582829"]]
+  [1m[35m (9.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 204ms (ActiveRecord: 11.1ms | Allocations: 10377)
+
+
+Started GET "/" for ::1 at 2020-08-17 16:41:53 +0200
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 9906)
+
+
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
