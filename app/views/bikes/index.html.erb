@@ -1,16 +1,19 @@
-    <div class="row justify-content-center">
-        <% @bikes.each do |bike| %>
-        <div class="col-lg-4 col-12  p-2">
-
-            <div class="card" style="height: 100%;">
-                <div class="card-body">
-                <div class="card-title text-center">
-                    <p><strong> <%= link_to bike.title, bike_path(bike)%></strong></p>
-                </div>
-                <div class="card-text"><%=bike.description%></div>
-            </div>
-            </div>
+<div class="container">
+  <div class="card-wrapper">
+    <% @bikes.each do |bike| %>
+      <div class="card">
+        <div class="card-img-top">
+          <% if bike.photo.attached? %>
+            <%= cl_image_tag bike.photo.key %>
+          <% else %>
+          <%= image_tag "bike_placeholder_300x300.png" %>
+          <% end %>
         </div>
-                <% end %>
-
+        <div class="card-body">
+          <h4 class="card-title"><strong> <%= link_to bike.title, bike_path(bike)%></strong></h4>
+          <p class="card-text"><%=bike.description%></p>
+          <a href="#" class="btn btn-danger">Details</a>
         </div>
+      </div>
+    <% end %>
+  </div>
