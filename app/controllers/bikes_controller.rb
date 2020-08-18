@@ -9,6 +9,19 @@ class BikesController < ApplicationController
         @bikes = Bike.all
     end
 
+    def edit
+        @bike = Bike.find(params[:id])
+    end
+
+    def update
+        @bike = Bike.find(params[:id])
+        if @bike.update(bike_params)
+          redirect_to @bike, notice: 'Bike was successfully updated.'
+        else
+          render :edit
+        end
+    end
+
     def create
         @bike = Bike.new(bike_params)
         @user = User.find(current_user.id)
