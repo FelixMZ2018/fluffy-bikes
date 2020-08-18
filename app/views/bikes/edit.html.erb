@@ -1,0 +1,7 @@
+<h1> Edit this Bike </h1>
+<%= simple_form_for @bike do |f| %>
+<%= f.input :title, label: "title"%>
+  <%= f.input :photo, as: :file %>
+    <%= f.button :submit, "Edit your Bike now", class: "btn btn-danger"%>
+
+<%end%>
