@@ -1,7 +1,7 @@
-<%= simple_form_for @bike do |f| %>
-<%= f.input :title, label: "title"%>
-  <%= f.input :photo, as: :file %>
+<div class="container">
+  <%= simple_form_for @bike do |f| %>
+    <%= f.input :title, label: "Title"%>
+    <%= f.input :photo, as: :file %>
     <%= f.button :submit, "Add your Bike now", class: "btn btn-danger"%>
-
-<%end%>
-
+  <%end%>
+</div>
