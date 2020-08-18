@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
+  <%= link_to bikes_path, class: "navbar-brand" do %>
     <%= image_tag "bike_logo.svg" %>
     <% end %>
 
@@ -17,8 +17,8 @@
               current_user
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Profile</a>
-              <a class="dropdown-item" href="#">Host your Bike</a>
+              <%= link_to "Offer a Bike", new_bike_path, method: :get, class: "dropdown-item" %>
+              <%= link_to "Rent a bike", bikes_path, method: :get, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </div>
