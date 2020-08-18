@@ -6,7 +6,7 @@
           <% if bike.photo.attached? %>
             <%= cl_image_tag bike.photo.key %>
           <% else %>
-          <%= image_tag "bike_placeholder_300x300.png" %>
+          <%= image_tag "bike_placeholder_300x300.png", class: "card-img-top" %>
           <% end %>
         </div>
         <div class="card-body">
