@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dg106nng3
+  api_key: '845158734265512'
+  api_secret: uRIWejubkVHUCSfXNFaCLAiU0YU
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dg106nng3
+  api_key: '845158734265512'
+  api_secret: uRIWejubkVHUCSfXNFaCLAiU0YU
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dg106nng3
+  api_key: '845158734265512'
+  api_secret: uRIWejubkVHUCSfXNFaCLAiU0YU
+  enhance_image_tag: true
+  static_file_support: false
