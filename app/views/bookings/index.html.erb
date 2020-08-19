@@ -3,6 +3,5 @@
 <% @my_booking.each do |booking| %>
 <li>From <%= p booking.starting_date%> until  <%= p booking.end_date%> for <%= link_to booking.bike.title, bike_path(booking.bike)%> The request is <%=booking.confirmation_status%></li>
 <%end%>
-<%raise%>
 </ul>
 <h1> Booking for me </h1>
