@@ -28,9 +28,11 @@ class BookingsController < ApplicationController
 
     def index
         @user = User.find(current_user.id)
-        @booking = Booking.where(user_id: @user.id)
+        @my_booking = Booking.where(user_id: @user.id)
+      ## leaving this out because it breaks stuff
+      ##  @booking = Booking.includes(:bike).where(bike:{user_id: @user.id})
+
     end
-    
     def edit
 
     end
