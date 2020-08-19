@@ -10,6 +10,17 @@
   <h1><%= @bike.title%></h1>
   <p><%= @bike.description %></p>
   <%= link_to "Edit", edit_bike_path, class: "btn btn-danger" %>
-</div>
+
+
+<h1> Book this Bike! </h1>
+        <%= simple_form_for [@bike, @bookings] do |f| %>
+        <%= f.input :starting_date, label: "From When"%>
+        <%= f.input :end_date, label: "Until When"%>
+
+
+        <%= f.submit 'Request Booking', class: 'btn btn-success m-2' %>
+        <%end%>
+        
+        </div>
 
 

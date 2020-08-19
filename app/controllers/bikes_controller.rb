@@ -36,14 +36,15 @@ class BikesController < ApplicationController
 
     def show
         @bike = Bike.find(params[:id])
+        @bookings = Booking.new
 
     end
-    
+
     private
 
     def bike_params
         params.require(:bike).permit(:title, :photo)
-        
+
     end
-    
+
 end

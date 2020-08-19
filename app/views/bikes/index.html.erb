@@ -2,17 +2,16 @@
   <div class="card-wrapper">
     <% @bikes.each do |bike| %>
       <div class="card">
-        <div class="card-img-top">
           <% if bike.photo.attached? %>
-            <%= cl_image_tag bike.photo.key %>
+            <%= cl_image_tag bike.photo.key ,class: "card-img-top"%>
           <% else %>
-          <%= image_tag "bike_placeholder_300x300.png", class: "card-img-top" %>
+            <%= image_tag "bike_placeholder_300x300.png", class: "card-img-top" %>
           <% end %>
-        </div>
+          <div class="username"> <%= bike.user.email %> </div>
         <div class="card-body">
-          <h4 class="card-title"><strong> <%= link_to bike.title, bike_path(bike)%></strong></h4>
+          <h4 class="card-title"><strong> <%= bike.title %></strong></h4>
           <p class="card-text"><%=bike.description%></p>
-          <a href="#" class="btn btn-danger">Details</a>
+           <%= link_to "Deatils", bike_path(bike), class: "btn btn-danger" %>
         </div>
       </div>
     <% end %>
