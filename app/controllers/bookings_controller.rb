@@ -30,8 +30,7 @@ class BookingsController < ApplicationController
         @user = User.find(current_user.id)
         @my_booking = Booking.where(user_id: @user.id)
       ## leaving this out because it breaks stuff
-      ##  @booking = Booking.includes(:bike).where(bike:{user_id: @user.id})
-
+       @booking = Booking.all.includes(:bike).where("bike.user" == @user)
     end
     def edit
 
