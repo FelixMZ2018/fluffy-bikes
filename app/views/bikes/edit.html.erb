@@ -6,4 +6,6 @@
     <%= f.input :photo, as: :file %>
     <%= f.button :submit, "Edit your Bike now", class: "btn btn-danger"%>
   <%end%>
+  <%= link_to  "Delete", bike_path ,method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure you want to delete' }%>
+
 </div>

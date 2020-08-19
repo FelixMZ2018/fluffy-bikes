@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }
-  
+  has_one_attached :photo
 end
