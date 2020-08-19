@@ -10,9 +10,9 @@
           <% end %>
         </div>
         <div class="card-body">
-          <h4 class="card-title"><strong> <%= link_to bike.title, bike_path(bike)%></strong></h4>
+          <h4 class="card-title"><strong> <%= bike.title %></strong></h4>
           <p class="card-text"><%=bike.description%></p>
-          <a href="#" class="btn btn-danger">Details</a>
+           <%= link_to "Deatils", bike_path(bike), class: "btn btn-danger" %>
         </div>
       </div>
     <% end %>
