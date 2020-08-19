@@ -1,17 +1,17 @@
 <% if @bike.photo.attached? %>
-  <%= cl_image_tag @bike.photo.key, :transformation => {:width=>1200, :height=>500, :crop=>"fill"} %>
+  <%= cl_image_tag @bike.photo.key, :transformation => {:width=> 1450, :height=>500, :crop=>"fill"} %>
 <% else %>
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1569943228307-a66beab7cd96?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1019&q=80);">
   </div>
 <% end %>
 <br>
-
+<br>
 <div class="container">
   <h1><%= @bike.title%></h1>
   <p><%= @bike.description %></p>
   <%= link_to "Edit", edit_bike_path, class: "btn btn-danger" %>
-
-
+<br>
+<br>
 <h1> Book this Bike! </h1>
         <%= simple_form_for [@bike, @bookings] do |f| %>
         <%= f.input :starting_date, label: "From When"%>
