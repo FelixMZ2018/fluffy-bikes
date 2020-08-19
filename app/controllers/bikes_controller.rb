@@ -39,12 +39,12 @@ class BikesController < ApplicationController
         @bookings = Booking.new
 
     end
-    
+
     private
 
     def bike_params
         params.require(:bike).permit(:title, :photo)
-        
+
     end
-    
+
 end
