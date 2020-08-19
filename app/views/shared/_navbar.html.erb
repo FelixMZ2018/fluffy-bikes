@@ -14,7 +14,7 @@
         <li class="nav-item dropdown">
           <div class="dropdown">
             <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              current_user
+              <%= @user.email %>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <%= link_to "Profile", current_user, method: :get, class: "dropdown-item" %>
