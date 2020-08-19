@@ -1,1 +1,27 @@
-<%= @user %>
+
+<div class="container">
+  <div class="row">
+
+<div class="col-6">
+    <div class="card p-3 mb-3">
+      <%= image_tag "bike_placeholder_300x300.png", class: "avatar-large" %>
+      <h1>About</h1>
+      <p class=""><strong><%= @user.username %></strong></p>
+      <p class=""><small>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</small></p>
+      <%= link_to "Edit", edit_user_registration_path, class: "btn btn-danger" %>
+      </div>
+    </div>
+
+     <div class="col-6">
+      <h2 class="text-center">My listings</h2>
+        <div class="listings">
+            <div class="listing" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
+              City Bike
+            </div>
+            <div class="listing" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+              Mountain Bike
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

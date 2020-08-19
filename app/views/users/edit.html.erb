@@ -1,0 +1,9 @@
+<div class="container">
+  <h1> Edit your profile </h1>
+  <%= simple_form_for @user do |f| %>
+  <%= f.input :name, label: "name"%>
+    <%= f.input :about, label: "about"%>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit, "Edit your profile", class: "btn btn-danger"%>
+  <%end%>
+</div>
