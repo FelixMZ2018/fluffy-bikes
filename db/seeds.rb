@@ -13,6 +13,9 @@ Booking.destroy_all
 Bike.destroy_all
 User.destroy_all
 
+user = User.create(email: "admin@fluffybikes.com", username: Faker::Internet.username, password: "password")
+
+
 puts 'Creating users'
   3.times do
     user = User.create(email: Faker::Internet.email, username: Faker::Internet.username, password: Faker::Internet.password)
