@@ -8,8 +8,21 @@
       class: "form-control",
       placeholder: "Find a bike"
     %>
+        <% end %>
+
+    <%= text_field_tag :district,
+      params[:district],
+      class: "form-control",
+      placeholder: "Filter by district"
+    %>
+
+    <%= text_field_tag :category,
+      params[:category],
+      class: "form-control",
+      placeholder: "Filter by category"
+    %>
+
   <%= submit_tag "Search", class: "btn-danger mt-3 mx-auto d-block" %>
-  <% end %>
   <br>
 <hr>
   <div class="card-wrapper">
