@@ -4,8 +4,6 @@
     <%= f.input :title, label: "Title"%>
     <%= f.input :description, size: 200, label: "Description:"%>
     <%= f.input :photo, as: :file %>
-    <%= f.association :district %>
-    <%= f.input :category, label: "Category:", collection: @categories%>
     <%= f.button :submit, "Edit your Bike now", class: "btn btn-danger"%>
   <%end%>
   <%= link_to  "Delete", bike_path ,method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure you want to delete' }%>

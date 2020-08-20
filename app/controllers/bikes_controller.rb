@@ -1,12 +1,10 @@
 class BikesController < ApplicationController
     skip_before_action :authenticate_user!, only: [ :index ]
-    before_action :set_district, only: [ :create ]
-    before_action :set_categories, only: [ :new, :edit ]
+
 
     def new
         @user = User.find(current_user.id)
         @bike = Bike.new
-        @districts = District.all
         authorize @bike
     end
 
@@ -32,7 +30,6 @@ class BikesController < ApplicationController
 
     def create
         @bike = Bike.new(bike_params)
-        @bike.district = @district
         @user = User.find(current_user.id)
         @bike.user = @user
         authorize @bike
@@ -57,20 +54,13 @@ class BikesController < ApplicationController
         authorize @bike
         redirect_to bikes_path
     end
-
+    
 
     private
 
     def bike_params
-        params.require(:bike).permit(:title, :photo, :description, :district_id, :category)
+        params.require(:bike).permit(:title, :photo)
 
     end
 
-    def set_district
-      @district = District.find(params[:bike][:district_id])
-    end
-
-    def set_categories
-      @categories = ["eBike", "City Bike"]
-    end
 end
