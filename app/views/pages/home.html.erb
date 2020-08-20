@@ -1,11 +1,8 @@
 <%= render 'shared/banner' %>
 <br>
-<div class="col-12">
-  <h1 class="text-center">Bikes of the day</h1>
-</div>
-<hr>
-<br>
 <div class="container">
+  <h1>Bikes of the day</h1>
+<hr>
   <div class="card-wrapper">
     <% @bikes.limit(3).each do |bike| %>
       <div class="card">
@@ -14,7 +11,7 @@
           <% else %>
           <%= image_tag "bike_placeholder_300x300.png", class: "card-img-top" %>
           <% end %>
-          <div class="username"> <%= bike.user.email %> </div>
+          <div class="username text-center"> <%= bike.user.username %> </div>
         <div class="card-body">
           <h4 class="card-title"><strong> <%= bike.title %></strong></h4>
           <p class="card-text"><%=bike.description%></p>
