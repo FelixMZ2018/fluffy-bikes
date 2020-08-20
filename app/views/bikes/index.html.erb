@@ -1,4 +1,7 @@
 <div class="container">
+  <br>
+  <h1 class="text-center">Fluffy bikes available <%= image_tag "giphy.gif", style: 'height:50px;width:50px;' %></h1>
+  <hr>
   <div class="card-wrapper">
     <% @bikes.each do |bike| %>
       <div class="card">
@@ -7,7 +10,7 @@
           <% else %>
             <%= image_tag "bike_placeholder_300x300.png", class: "card-img-top" %>
           <% end %>
-          <div class="username"> <%= bike.user.email %> </div>
+          <div class="username text-center"> <%= bike.user.username %> </div>
         <div class="card-body">
           <h4 class="card-title"><strong> <%= bike.title %></strong></h4>
           <p class="card-text"><%=bike.description%></p>
