@@ -14,7 +14,11 @@
         <div class="card-body">
           <h4 class="card-title"><strong> <%= bike.title %></strong></h4>
           <p class="card-text"><%=bike.description%></p>
-           <%= link_to "Deatils", bike_path(bike), class: "btn btn-danger" %>
+            <% if policy(bike).edit? %>
+            <%= link_to "Edit my Bike", edit_bike_path(bike), class: "btn btn-danger align-self-end"%>
+            <% else %>
+            <%= link_to "Details", bike_path(bike), class: "button btn btn-danger" %>
+          <% end %>
         </div>
       </div>
     <% end %>
