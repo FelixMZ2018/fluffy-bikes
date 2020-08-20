@@ -2,6 +2,16 @@
   <br>
   <h1 class="text-center">Fluffy bikes available <%= image_tag "giphy.gif", style: 'height:50px;width:50px;' %></h1>
   <hr>
+  	
+  <%= form_tag bikes_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a bike"
+    %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+
   <div class="card-wrapper">
     <% @bikes.each do |bike| %>
       <div class="card">
