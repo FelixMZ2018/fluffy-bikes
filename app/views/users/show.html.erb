@@ -9,7 +9,7 @@
                 <%= image_tag "bike_placeholder_300x300.png", class: "avatar-large mx-auto d-block pt-3" %>
               <% end %>
               <p class="pl-3"><strong><%= @user.username %></strong></p>
-              <p class="pl-3"><small>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</small></p>
+              <p class="pl-3"><small><%= @user.about %></small></p>
               <%= link_to "Edit", edit_user_registration_path, class: "btn btn-danger ml-3 mx-auto d-block" %>
             </div>
         </div>
