@@ -16,7 +16,7 @@
 
 .listings {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
   margin: 16px;
   flex-grow: 1;
@@ -32,4 +32,8 @@
   .listings {
     grid-template-columns: 1fr;
   }
+}
+
+h2 {
+  color: $danger;
 }

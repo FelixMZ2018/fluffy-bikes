@@ -1,12 +1,12 @@
-<h1>My Bookings</h1>
+<h1>My bookings:</h1>
 <ul>
 <% @my_booking.each do |booking| %>
 <li>From <%= p booking.starting_date%> until  <%= p booking.end_date%> for <%= link_to booking.bike.title, bike_path(booking.bike)%> The request is <%=booking.confirmation_status%></li>
 <%end%>
 </ul>
-<h1> Booking for me </h1>
+<h1> Pending bike requests: </h1>
 <ul>
 <% @booking.each do |booking| %>
 <li><%= booking.user.email%> would like to rent my bike from <%= p booking.starting_date%> until  <%= p booking.end_date%> for <%= link_to booking.bike.title, bike_path(booking.bike)%> The request is <%=booking.confirmation_status%></li>
 <%end%>
-</ul>   
+</ul>
