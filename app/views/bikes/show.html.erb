@@ -9,7 +9,9 @@
 <div class="container">
   <h1><%= @bike.title%></h1>
   <p><%= @bike.description %></p>
-  <%= link_to "Edit", edit_bike_path, class: "btn btn-danger" %>
+  <% if policy(@bike).edit? %>
+  <%= link_to "Edit your Bike", edit_bike_path(@bike) %>
+<% end %>
 <br>
 <br>
 <h1> Book this Bike! </h1>
