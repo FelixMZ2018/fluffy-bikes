@@ -9,7 +9,9 @@
 <div class="container">
   <h1><%= @bike.title%></h1>
   <p><%= @bike.description %></p>
-  <p><%= @bike.district.name %></p>
+  <%if @bike.district_id.present?%>
+  <p><%= District.find(@bike.district_id).name %>
+  <%end%>
   <p><%= @bike.category %></p>
 
   <% if policy(@bike).edit? %>
