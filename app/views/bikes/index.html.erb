@@ -1,14 +1,14 @@
 <div class="container">
   <br>
   <h1 class="text-center">Fluffy bikes available <%= image_tag "giphy.gif", style: 'height:50px;width:50px;' %></h1>
-  <hr>
-  	
+<br>
   <%= form_tag bikes_path, method: :get do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
       placeholder: "Find a bike"
     %>
+        <% end %>
 
     <%= text_field_tag :district,
       params[:district],
@@ -22,9 +22,9 @@
       placeholder: "Filter by category"
     %>
 
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-
+  <%= submit_tag "Search", class: "btn-danger mt-3 mx-auto d-block" %>
+  <br>
+<hr>
   <div class="card-wrapper">
     <% @bikes.each do |bike| %>
       <div class="card">
@@ -33,12 +33,12 @@
           <% else %>
             <%= image_tag "bike_placeholder_300x300.png", class: "card-img-top" %>
           <% end %>
-          <div class="username text-center"> <%= bike.user.username %> </div>
+          <div class="username text-center pt-3"> <%= bike.user.username %> </div>
         <div class="card-body">
           <h4 class="card-title"><strong> <%= bike.title %></strong></h4>
           <p class="card-text"><%=bike.description%></p>
             <% if policy(bike).edit? %>
-            <%= link_to "Edit my Bike", edit_bike_path(bike), class: "btn btn-danger align-self-end"%>
+            <%= link_to "Edit my Bike", edit_bike_path(bike), class: "btn btn-outline-danger align-self-end"%>
             <% else %>
             <%= link_to "Details", bike_path(bike), class: "button btn btn-danger" %>
           <% end %>
