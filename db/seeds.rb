@@ -12,6 +12,7 @@ puts 'Cleaning database...'
 Booking.destroy_all
 Bike.destroy_all
 User.destroy_all
+District.destroy_all
 
 user = User.create(email: "admin@fluffybikes.com", username: Faker::Internet.username, password: "password")
 

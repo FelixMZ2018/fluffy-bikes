@@ -12,6 +12,12 @@ class BikesController < ApplicationController
 
     def index
         @bikes = policy_scope(Bike).order(created_at: :desc)
+        @bikes = @bikes.search_by_title_and_description(params[:query]) if params[:query].present?
+        @bikes = Bike.where('category ILIKE ?', "%#{params[:category]}%") if params[:category].present?
+      if params[:district].present?
+        district = District.find_by_name(params[:district])
+        @bikes = Bike.where(district_id: district.id)
+      end
     end
 
     def edit
