@@ -4,3 +4,4 @@ class UsersController < ApplicationController
     @bikes = Bike.where(user_id: @user.id)
     authorize @user
 end
+end
