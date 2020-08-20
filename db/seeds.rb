@@ -21,6 +21,28 @@ puts 'Creating users'
     user = User.create(email: Faker::Internet.email, username: Faker::Internet.username, password: Faker::Internet.password)
   end
 
+
+puts 'Creating districts'
+
+district_seeds = [
+  "Charlottenburg-Wilmersdorf",
+  "Friedrichshain-Kreuzberg",
+  "Lichtenberg",
+  "Marzahn-Hellersdorf",
+  "Mitte",
+  "Pankow",
+  "Reinickendorf",
+  "Spandau",
+  "Steglitz-Zehlendorf",
+  "Tempelhof-Schöneberg",
+  "Treptow-Köpenick"
+]
+
+district_seeds.each do |seed|
+  District.create(name: seed)
+end
+
+
 puts 'Creating bikes'
 
 image_seeds = [
@@ -41,11 +63,8 @@ image_seeds.each do |seed|
   bike = Bike.new(title: Faker::Hipster.word, description: Faker::Hipster.paragraph, user_id: rand(User.first.id..User.last.id))
   file = URI.open(seed)
   bike.photo.attach(io: file, filename: 'bd.jpg', content_type: 'image/jpg')
+  bike.district_id = rand(District.first.id..District.last.id)
   bike.save
-
-
-
-
 end
   # 10.times do
   #  bike = Bike.create(title: Faker::Hipster.word, description: Faker::Hipster.paragraph, user_id: rand(User.first.id..User.last.id))
