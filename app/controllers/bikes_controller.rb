@@ -1,11 +1,10 @@
 class BikesController < ApplicationController
     skip_before_action :authenticate_user!, only: [ :index ]
-    before_action :set_district, only: [ :create ]
-    before_action :set_categories, only: [ :new, :edit ]
 
     def new
         @user = User.find(current_user.id)
         @bike = Bike.new
+        @categories = ["eBike", "City Bike"]
         @districts = District.all
         authorize @bike
     end
@@ -23,6 +22,8 @@ class BikesController < ApplicationController
     def edit
         @bike = Bike.find(params[:id])
         @user = User.find(current_user.id)
+        @categories = ["eBike", "City Bike"]
+        @districts = District.all
         authorize @bike
     end
 
@@ -38,14 +39,13 @@ class BikesController < ApplicationController
 
     def create
         @bike = Bike.new(bike_params)
-        @bike.district = @district
         @user = User.find(current_user.id)
         @bike.user = @user
         authorize @bike
         if @bike.save
             redirect_to @bike, notice: 'Bike was added'
         else
-            render :new
+            render :new, notice: 'Bike was not added'
         end
 
     end
@@ -63,20 +63,11 @@ class BikesController < ApplicationController
         authorize @bike
         redirect_to bikes_path
     end
-
+    
 
     private
 
     def bike_params
-        params.require(:bike).permit(:title, :photo, :description, :district_id, :category)
-
-    end
-
-    def set_district
-      @district = District.find(params[:bike][:district_id])
-    end
-
-    def set_categories
-      @categories = ["eBike", "City Bike"]
+        params.require(:bike).permit(:title, :photo, :description, :district_id,:category)
     end
 end

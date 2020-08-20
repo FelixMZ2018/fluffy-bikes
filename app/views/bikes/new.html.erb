@@ -1,11 +1,13 @@
 <div class="container">
+  <br>
+  <br>
   <h1>Add your Bike</h1>
   <%= simple_form_for @bike do |f| %>
     <%= f.input :title, label: "Title:"%>
     <%= f.input :description, size: 200, label: "Description:"%>
-    <%= f.input :photo, as: :file %>
     <%= f.input :district_id, label: "District:", collection: @districts%>
     <%= f.input :category, label: "Category:", collection: @categories%>
+    <%= f.input :photo, as: :file %>
     <%= f.button :submit, "Add your Bike now", class: "btn btn-danger"%>
   <%end%>
 </div>

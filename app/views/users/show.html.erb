@@ -4,7 +4,7 @@
             <div class="card p-3 mb-3">
               <h1 class="pl-3 text-center">About</h1>
               <% if @user.photo.attached? %>
-                <%= cl_image_tag user.photo.key, class: "avatar-large mx-auto d-block pt-3"  %>
+                <%= cl_image_tag @user.photo.key, class: "avatar-large mx-auto d-block pt-3"  %>
               <% else %>
                 <%= image_tag "bike_placeholder_300x300.png", class: "avatar-large mx-auto d-block pt-3" %>
               <% end %>
