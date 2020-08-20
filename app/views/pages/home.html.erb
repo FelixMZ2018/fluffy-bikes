@@ -1,5 +1,10 @@
 <%= render 'shared/banner' %>
 <br>
+<div class="col-12">
+  <h1 class="text-center">Bikes of the day</h1>
+</div>
+<hr>
+<br>
 <div class="container">
   <div class="card-wrapper">
     <% @bikes.limit(3).each do |bike| %>
@@ -13,7 +18,7 @@
         <div class="card-body">
           <h4 class="card-title"><strong> <%= bike.title %></strong></h4>
           <p class="card-text"><%=bike.description%></p>
-           <%= link_to "Deatils", bike_path(bike), class: "btn btn-danger" %>
+           <%= link_to "Details", bike_path(bike), class: "btn btn-danger" %>
         </div>
       </div>
     <% end %>
