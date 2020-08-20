@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
     def new
         @Bike = Bike.find(:id)
         @booking = Booking.new
+        authorize @booking
         @booking.bike = @Bike
     end
 
@@ -12,6 +13,7 @@ class BookingsController < ApplicationController
         @booking.bike = @bike
         @booking.user = @user
         @booking.confirmation_status = "pending"
+        authorize @booking
         if @booking.save
             redirect_to bike_path(@bike), notice: 'Booking was requested.'
         else
@@ -23,15 +25,17 @@ class BookingsController < ApplicationController
     def show
         @user = User.find(current_user.id)
         @booking = Bookings.all
+        authorize @booking
         
     end
 
     def index
         @user = User.find(current_user.id)
-        @my_booking = Booking.where(user_id: @user.id)
+        @my_booking = policy_scope(Booking).where(user_id: @user.id)
       ## leaving this out because it breaks stuff
-       @booking = Booking.all.includes(:bike).where("bike.user" == @user)
+       @booking = policy_scope(Booking).all.includes(:bike).where("bike.user" == @user)
     end
+
     def edit
 
     end

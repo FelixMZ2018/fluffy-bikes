@@ -1,20 +1,26 @@
 class BikesController < ApplicationController
+    skip_before_action :authenticate_user!, only: [ :index ]
+
 
     def new
         @user = User.find(current_user.id)
         @bike = Bike.new
+        authorize @bike
     end
 
     def index
-        @bikes = Bike.all
+        @bikes = policy_scope(Bike).order(created_at: :desc)
     end
 
     def edit
         @bike = Bike.find(params[:id])
+        @user = User.find(current_user.id)
+        authorize @bike
     end
 
     def update
         @bike = Bike.find(params[:id])
+        authorize @bike
         if @bike.update(bike_params)
           redirect_to @bike, notice: 'Bike was successfully updated.'
         else
@@ -26,6 +32,7 @@ class BikesController < ApplicationController
         @bike = Bike.new(bike_params)
         @user = User.find(current_user.id)
         @bike.user = @user
+        authorize @bike
         if @bike.save
             redirect_to @bike, notice: 'Bike was added'
         else
@@ -37,12 +44,14 @@ class BikesController < ApplicationController
     def show
         @bike = Bike.find(params[:id])
         @bookings = Booking.new
+        authorize @bike
 
     end
 
     def destroy
         @bike = Bike.find(params[:id])
         @bike.destroy
+        authorize @bike
         redirect_to bikes_path
     end
     
