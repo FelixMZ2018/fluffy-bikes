@@ -1,7 +1,6 @@
 class BikesController < ApplicationController
     skip_before_action :authenticate_user!, only: [ :index ]
 
-
     def new
         @user = User.find(current_user.id)
         @bike = Bike.new
@@ -36,7 +35,7 @@ class BikesController < ApplicationController
         if @bike.save
             redirect_to @bike, notice: 'Bike was added'
         else
-            render :new
+            render :new, notice: 'Bike was not added'
         end
 
     end
@@ -59,8 +58,6 @@ class BikesController < ApplicationController
     private
 
     def bike_params
-        params.require(:bike).permit(:title, :photo)
-
+        params.require(:bike).permit(:title, :photo, :description)
     end
-
 end
