@@ -1,4 +1,13 @@
 class BookingPolicy < ApplicationPolicy
+
+  def update?
+    return true
+        end
+    
+        def edit?
+          return true
+        end
+
   class Scope < Scope
 
 
@@ -13,9 +22,6 @@ class BookingPolicy < ApplicationPolicy
       return true
     end
 
-    def update?
-      record.user == user
-    end
 
     def destroy?
       record.user == user

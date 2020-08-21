@@ -37,7 +37,7 @@ class BikesController < ApplicationController
     def edit
         @bike = Bike.find(params[:id])
         @user = User.find(current_user.id)
-        @categories = ["eBike", "City Bike"]
+        @categories = ["eBike", "City Bike","Mountain Bike","Fixed Gear","Road Bike","Trecking Bike","Unicycle"]
         @districts = District.all
         authorize @bike
     end

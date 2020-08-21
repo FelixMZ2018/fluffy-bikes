@@ -1,14 +1,12 @@
 <div class="container">
   <br>
 
-  <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'Mybookings')">My Bookings</button>
-  <button class="tablinks" onclick="openCity(event, 'PendingRequests')">Pending Bike Requests</button>
-</div>
+  <ul class="list-inline tabs-underlined justify-content-center">
+    <li class="tab-underlined tablinks" onclick="openCity(event, 'Mybookings')" id="defaultOpen">My Bookings</li>
+    <li class="tab-underlined tablinks" onclick="openCity(event, 'PendingRequests')">Pending Bike Requests</li>
+  </ul>
 <div id="Mybookings" class="tabcontent">
     <% @my_booking.each do |booking| %>
-
-
     <div class="card-product m-2">
     <% if booking.bike.photo.attached?%>
     <%= cl_image_tag booking.bike.photo.key %>
@@ -20,22 +18,29 @@
 </div>
     <%end%>
 </div>
+
 <div id="PendingRequests" class="tabcontent">
- <% @booking.each do |booking| %>
-     <div class="card-product m-2">
-    <% if booking.user.photo.attached?%>
-    <%= cl_image_tag booking.user.photo.key %>
-    <% end %>
-    <div class="card-product-infos">
-    <h2><%=booking.user.username%> would like to book your bike <%=booking.bike.title%> </h2>
-    <p>From <%= p booking.starting_date%> until  <%= p booking.end_date%>, the request is currently <%= booking.confirmation_status %></p>
-    <%#= link_to "Confirm", booking_path(booking), method: :patch, data: { confirm: 'Are you sure you want to confirm',confirmation_status: "rejected" }%>
-    <%#= link_to "Delete", booking_path(booking), method: :delete, data: { confirm: 'Are you sure you want to delete' }%>
+      <% @booking.each do |booking| %>
+        <div class="card-product m-2">
+          <% if booking.user.photo.attached?%>
+            <%= cl_image_tag booking.user.photo.key %>
+          <% end %>
+          <div class="card-product-infos">
+            <h2><%=booking.user.username%> would like to book your bike <%=booking.bike.title%> </h2>
+            <p>From <%= p booking.starting_date%> until  <%= p booking.end_date%>, the request is currently <%= booking.confirmation_status %></p>
+          </div>
+              <%# if booking.confirmation_status == "Pending" ||  booking.confirmation_status == "pending" %>
+                <%#= simple_form_for [booking] do |f| %>
+                   <%#= f.input :confirmation_status, :collection => %w[Pending Confirmed Rejected] %>
+                   <%#= f.submit 'Send', class: 'btn btn-success' %>
+                <%# end %>
+              <%# end %>
+        </div>
+      <% end %>
   </div>
-</div> 
-  <%end%>
-</div>
-</div>
+
+
+
 
 
 <script>
@@ -52,5 +57,8 @@ function openCity(evt, cityName) {
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
+
+document.getElementById("defaultOpen").click();
+
 </script>
-   
+
