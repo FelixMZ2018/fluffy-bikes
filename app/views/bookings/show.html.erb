@@ -1,0 +1,13 @@
+<%=@booking%>
+<%=@booking.confirmation_status%>
+
+
+<div class="container pt-5">
+    <h2>confirm or reject this booking</h2>
+    <%= simple_form_for [@booking] do |f| %>
+    <%= f.input :confirmation_status, :collection => %w[Pending Confirmed Rejected] %>
+    <%= f.submit 'Send', class: 'btn btn-success' %>
+    <% end %>
+    <hr>
+    <%= link_to  "Back", bookings_path, class: "btn btn-success"%>
+</div>x
