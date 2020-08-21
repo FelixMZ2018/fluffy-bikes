@@ -35,10 +35,16 @@ class BookingsController < ApplicationController
       ## leaving this out because it breaks stuff
        @booking = policy_scope(Booking).joins(:bike).where("bikes.user_id = #{@user.id}")
     end
-    
+
     def edit
 
     end
+
+    def confirm
+        
+    end
+    
+
  private
     def bookings_params
         params.require(:booking).permit(:starting_date, :end_date)
