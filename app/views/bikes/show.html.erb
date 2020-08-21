@@ -1,33 +1,45 @@
 <% if @bike.photo.attached? %>
-  <%= cl_image_tag @bike.photo.key, :transformation => {:width=> 1450, :height=>500, :crop=>"fill"} %>
+  <%= cl_image_tag @bike.photo.key, class: "img-bike-show" %>
 <% else %>
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1569943228307-a66beab7cd96?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1019&q=80);">
   </div>
 <% end %>
 <br>
 <br>
-<div class="container">
-  <h1><%= @bike.title%></h1>
-  <p><%= @bike.description %></p>
-  <%if @bike.district_id.present?%>
-  <p><%= District.find(@bike.district_id).name %>
-  <%end%>
-  <p><%= @bike.category %></p>
-
-  <% if policy(@bike).edit? %>
-  <%= link_to "Edit your Bike", edit_bike_path(@bike) %>
-<% end %>
-<br>
-<br>
-<h1> Book this Bike! </h1>
+<div class="container shadow-sm p-3 mb-5 bg-white rounded">
+  <div class="d-flex flex-row">
+    <div class="col-6">
+    <h1><%= @bike.title%></h1>
+    <br>
+    <div class="avatar-bike">
+      <% if @bike.user.photo.attached? %>
+          <%= cl_image_tag @bike.user.photo.key, id: "avatar-large"  %>
+        <% else %>
+          <%= image_tag "bike_placeholder_300x300.png", id: "avatar-large" %>
+        <% end %>
+    </div>
+    <%if @bike.district_id.present?%>
+      <p> <i class="fas fa-map-marker-alt"></i> <strong>Pickup Location:</strong> <%= District.find(@bike.district_id).name %>
+    <%end%>
+    <p><i class="fas fa-bicycle"></i> <strong>Category:</strong><%= @bike.category %></p>
+    <p><%= @bike.description %></p>
+    <% if policy(@bike).edit? %>
+      <%= link_to "Edit your Bike", edit_bike_path(@bike) %>
+    <% end %>
+  </div>
+  <br>
+  <br>
+  <div class="col-6">
+    <div class="booking">
+      <h1> Book this Bike! </h1>
         <%= simple_form_for [@bike, @bookings] do |f| %>
-        <%= f.input :starting_date, label: "From When"%>
-        <%= f.input :end_date, label: "Until When"%>
-
-
-        <%= f.submit 'Request Booking', class: 'btn btn-success m-2' %>
+          <%= f.input :starting_date, label: "From When"%>
+          <%= f.input :end_date, label: "Until When"%>
+          <%= f.submit 'Request Booking', class: 'btn btn-danger mx-auto d-block mt-2' %>
         <%end%>
-
-        </div>
+    </div>
+  </div>
+  </div>
+</div>
 
 

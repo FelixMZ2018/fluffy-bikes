@@ -3,11 +3,13 @@
         <div class="col-6">
             <div class="card p-3 mb-3">
               <h1 class="pl-3 text-center">About</h1>
+              <div class="avatar-profile">
               <% if @user.photo.attached? %>
-                <%= cl_image_tag @user.photo.key, class: "avatar-large mx-auto d-block pt-3"  %>
+                <%= cl_image_tag @user.photo.key, id: "avatar-large"  %>
               <% else %>
-                <%= image_tag "bike_placeholder_300x300.png", class: "avatar-large mx-auto d-block pt-3" %>
+                <%= image_tag "bike_placeholder_300x300.png", id: "avatar-large" %>
               <% end %>
+             </div>
               <p class="pl-3"><strong><%= @user.username %></strong></p>
               <p class="pl-3"><small><%= @user.about %></small></p>
               <%= link_to "Edit", edit_user_registration_path, class: "btn btn-danger ml-3 mx-auto d-block" %>
