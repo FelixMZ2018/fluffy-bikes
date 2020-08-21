@@ -13,6 +13,10 @@ class BikePolicy < ApplicationPolicy
     return true
   end
 
+  def map?
+    return true
+  end
+
   def edit?
     update?
   end
