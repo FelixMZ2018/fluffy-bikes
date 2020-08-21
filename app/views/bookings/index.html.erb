@@ -15,7 +15,7 @@
     <% end %>
     <div class="card-product-infos">
     <h2><%= link_to booking.bike.title, bike_path(booking.bike)%></h2>
-    <p>From <%= p booking.starting_date%> until  <%= p booking.end_date%></p>
+    <p>From <%= p booking.starting_date%> until  <%= p booking.end_date%>, the request is currently <%= booking.confirmation_status %></p>
   </div>
 </div>
     <%end%>
@@ -28,7 +28,8 @@
     <% end %>
     <div class="card-product-infos">
     <h2><%=booking.user.username%> would like to book your bike <%=booking.bike.title%> </h2>
-    <p>From <%= p booking.starting_date%> until  <%= p booking.end_date%></p>
+    <p>From <%= p booking.starting_date%> until  <%= p booking.end_date%>, the request is currently <%= booking.confirmation_status %></p>
+    <p><%= button_to  "Confirm", confirm_booking_path  %>
   </div>
 </div> 
   <%end%>

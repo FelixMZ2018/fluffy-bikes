@@ -30,7 +30,7 @@ class BikesController < ApplicationController
         @bikes = Bike.where('category ILIKE ?', "%#{params[:category]}%") if params[:category].present?
       if params[:district].present?
         district = District.find_by_name(params[:district])
-        @bikes = Bike.where(district_id: district.id)
+        @bikes = Bike.where(district_id: district.name)
       end
     end
 
