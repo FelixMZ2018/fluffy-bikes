@@ -29,7 +29,7 @@
     <div class="card-product-infos">
     <h2><%=booking.user.username%> would like to book your bike <%=booking.bike.title%> </h2>
     <p>From <%= p booking.starting_date%> until  <%= p booking.end_date%>, the request is currently <%= booking.confirmation_status %></p>
-        <% if booking.confirmation_status == "Pending"%>
+        <% if booking.confirmation_status == "Pending" ||  booking.confirmation_status == "pending" %>
       <%= simple_form_for [booking] do |f| %>
     <%= f.input :confirmation_status, :collection => %w[Pending Confirmed Rejected] %>
     <%= f.submit 'Send', class: 'btn btn-success' %>
