@@ -31,10 +31,10 @@
       <%= image_tag "bike_placeholder_300x300.png" %>
     <% end %>
     <div class="card-product-infos">
-      <h2><%=booking.user.username%> would like to book your bike <%=booking.bike.title%> </h2>
-      <p>From <%= p booking.starting_date%> until  <%= p booking.end_date%>, the request is currently <%= booking.confirmation_status %></p>
-    <p><%= button_to  "Confirm", confirm_booking_path  %></p>
-    </div>
+    <h2><%=booking.user.username%> would like to book your bike <%=booking.bike.title%> </h2>
+    <p>From <%= p booking.starting_date%> until  <%= p booking.end_date%>, the request is currently <%= booking.confirmation_status %></p>
+    <%#= link_to "Confirm", booking_path(booking), method: :patch, data: { confirm: 'Are you sure you want to confirm',confirmation_status: "rejected" }%>
+    <%#= link_to "Delete", booking_path(booking), method: :delete, data: { confirm: 'Are you sure you want to delete' }%>
   </div>
    <%end%>
 </div>

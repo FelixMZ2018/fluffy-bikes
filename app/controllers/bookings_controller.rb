@@ -21,6 +21,15 @@ class BookingsController < ApplicationController
 
         end
     end
+
+    def update
+        @booking = Booking.find(params[:id])
+        if @booking.update(bookings_params)
+          redirect_to @booking, notice: 'Booking was successfully updated.'
+        else
+          render :edit
+        end
+      end
         
     def show
         @user = User.find(current_user.id)
@@ -37,17 +46,23 @@ class BookingsController < ApplicationController
     end
 
     def edit
-
+        @booking = Booking.find(params[:id])
+        redirect_back(fallback_location: root_path)
     end
 
     def confirm
-        
+        @booking = Booking.find(params[:id])
+        @booking.confirmation_status = "Confirmed"
     end
-    
+
+    def reject
+        @booking = Booking.find(params[:id])
+        @booking.confirmation_status = "Confirmed"
+    end
 
  private
     def bookings_params
-        params.require(:booking).permit(:starting_date, :end_date)
+        params.require(:booking).permit(:starting_date, :end_date, :id)
     end
 
     
