@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-booking">
   <br>
 
   <div class="tab">
@@ -19,11 +19,14 @@
 </div>
     <%end%>
 </div>
+
 <div id="PendingRequests" class="tabcontent">
  <% @booking.each do |booking| %>
-     <div class="card-product m-2">
+  <div class="card-product m-3 ">
     <% if booking.user.photo.attached?%>
-    <%= cl_image_tag booking.user.photo.key %>
+      <%= cl_image_tag booking.user.photo.key %>
+    <% else %>
+      <%= image_tag "bike_placeholder_300x300.png" %>
     <% end %>
     <div class="card-product-infos">
     <h2><%=booking.user.username%> would like to book your bike <%=booking.bike.title%> </h2>
@@ -35,10 +38,9 @@
     <%end%>
     <% end %>
   </div>
-</div> 
-  <%end%>
+<%end%>
 </div>
-</div>
+
 
 
 <script>
@@ -60,4 +62,4 @@ function openCity(evt, cityName) {
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 </script>
-   
+
