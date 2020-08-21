@@ -29,8 +29,8 @@ class BikesController < ApplicationController
         @bikes = @bikes.search_by_title_and_description(params[:query]) if params[:query].present?
         @bikes = Bike.where('category ILIKE ?', "%#{params[:category]}%") if params[:category].present?
       if params[:district].present?
-        district = District.find_by_name(params[:district])
-        @bikes = Bike.where(district_id: district.name)
+        @district = District.find_by_name(params[:district])
+        @bikes = Bike.where(district_id: @district)
       end
     end
 
