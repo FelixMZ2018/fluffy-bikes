@@ -1,15 +1,54 @@
 <div class="container">
   <br>
-  <h1>My bookings:</h1>
-  <ul>
-    <% @my_booking.each do |booking| %>
-      <li>From <%= p booking.starting_date%> until  <%= p booking.end_date%> for <%= link_to booking.bike.title, bike_path(booking.bike)%> <i class="far fa-paper-plane"></i> The request is <%=booking.confirmation_status%></li>
-    <%end%>
-  </ul>
-  <h1> Pending bike requests: </h1>
-  <ul>
-  <% @booking.each do |booking| %>
-    <li><%= booking.user.email%> would like to rent my bike from <%= p booking.starting_date%> until  <%= p booking.end_date%> for <%= link_to booking.bike.title, bike_path(booking.bike)%> <i class="far fa-paper-plane"></i> The request is <%=booking.confirmation_status%></li>
-  <%end%>
-  </ul>
+
+  <div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Mybookings')">My Bookings</button>
+  <button class="tablinks" onclick="openCity(event, 'PendingRequests')">Pending Bike Requests</button>
 </div>
+<div id="Mybookings" class="tabcontent">
+    <% @my_booking.each do |booking| %>
+
+
+    <div class="card-product m-2">
+    <% if booking.bike.photo.attached?%>
+    <%= cl_image_tag booking.bike.photo.key %>
+    <% end %>
+    <div class="card-product-infos">
+    <h2><%= link_to booking.bike.title, bike_path(booking.bike)%></h2>
+    <p>From <%= p booking.starting_date%> until  <%= p booking.end_date%></p>
+  </div>
+</div>
+    <%end%>
+</div>
+<div id="PendingRequests" class="tabcontent">
+ <% @booking.each do |booking| %>
+     <div class="card-product m-2">
+    <% if booking.user.photo.attached?%>
+    <%= cl_image_tag booking.user.photo.key %>
+    <% end %>
+    <div class="card-product-infos">
+    <h2><%=booking.user.username%> would like to book your bike <%=booking.bike.title%> </h2>
+    <p>From <%= p booking.starting_date%> until  <%= p booking.end_date%></p>
+  </div>
+</div> 
+  <%end%>
+</div>
+</div>
+
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+   

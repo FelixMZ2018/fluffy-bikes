@@ -33,9 +33,9 @@ class BookingsController < ApplicationController
         @user = User.find(current_user.id)
         @my_booking = policy_scope(Booking).where(user_id: @user.id)
       ## leaving this out because it breaks stuff
-       @booking = policy_scope(Booking).all.includes(:bike).where("bike.user" == @user)
+       @booking = policy_scope(Booking).joins(:bike).where("bikes.user_id = #{@user.id}")
     end
-
+    
     def edit
 
     end
