@@ -3,13 +3,19 @@
   <h1 class="text-center">Fluffy bikes available <%= image_tag "giphy.gif", style: 'height:50px;width:50px;' %></h1>
 <br>
 
-  <%= form_tag bikes_path, method: :get do %>
+ <div class="container pt-3 mb-3">
+    <div class="row justify-content-center">
+       <div class="col-12 col-md-6 col-lg-4">
+  <%= form_tag bikes_path, method: :get, id: "form_adj" do %>
+    <div class="search-form-control form-group">
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
         placeholder: "Find a bike"
       %>
+  </div>
 
+      <div class="search-form-control form-group">
       <% district = params[:district].present? ? params[:district] : "Filter by Pickup Location" %>
       <%= select_tag :district, options_for_select(["Charlottenburg-Wilmersdorf", "Friedrichshain-Kreuzberg",
             "Lichtenberg", "Marzahn-Hellersdorf", "Mitte", "Pankow", "Reinickendorf", "Spandau","Steglitz-Zehlendorf", "Tempelhof-Schöneberg",
@@ -17,15 +23,22 @@
             class: "form-control",
             :include_blank => "Filter by Pickup Location"
           %>
+      </div>
 
+      <div class="search-form-control form-group">
       <%= select_tag :category, options_for_select(["eBike", "City Bike","Mountain Bike","Fixed Gear","Road Bike","Trecking Bike","Unicycle"]),
         class: "form-control",
         :include_blank => "Filter by Bike Category"
       %>
+      </div>
 
       <%= submit_tag "Search", class: "btn-danger mt-3 mx-auto d-block" %>
 
   <% end %>
+
+  </div>
+</div>
+</div>
 
   <br>
 <hr>
