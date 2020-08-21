@@ -2,27 +2,30 @@
   <br>
   <h1 class="text-center">Fluffy bikes available <%= image_tag "giphy.gif", style: 'height:50px;width:50px;' %></h1>
 <br>
+
   <%= form_tag bikes_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find a bike"
-    %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a bike"
+      %>
 
-    <%= text_field_tag :district,
-      params[:district],
-      class: "form-control",
-      placeholder: "Filter by district"
-    %>
+      <% district = params[:district].present? ? params[:district] : "Filter by Pickup Location" %>
+      <%= select_tag :district, options_for_select(["Charlottenburg-Wilmersdorf", "Friedrichshain-Kreuzberg",
+            "Lichtenberg", "Marzahn-Hellersdorf", "Mitte", "Pankow", "Reinickendorf", "Spandau","Steglitz-Zehlendorf", "Tempelhof-Schöneberg",
+            "Treptow-Köpenick"], district),
+            class: "form-control",
+            :include_blank => "Filter by Pickup Location"
+          %>
 
-    <%= text_field_tag :category,
-      params[:category],
-      class: "form-control",
-      placeholder: "Filter by category"
-    %>
+      <%= select_tag :category, options_for_select(["eBike", "City Bike","Mountain Bike","Fixed Gear","Road Bike","Trecking Bike","Unicycle"]),
+        class: "form-control",
+        :include_blank => "Filter by Bike Category"
+      %>
 
-  <%= submit_tag "Search", class: "btn-danger mt-3 mx-auto d-block" %>
-          <% end %>
+      <%= submit_tag "Search", class: "btn-danger mt-3 mx-auto d-block" %>
+
+  <% end %>
 
   <br>
 <hr>
