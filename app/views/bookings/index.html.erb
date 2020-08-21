@@ -1,9 +1,9 @@
 <div class="container">
   <br>
 
-  <ul class="list-inline tabs-underlined justify-content-center">	
-  <button class="tab-underlined tablinks" onclick="openCity(event, 'Mybookings')">My Bookings</button>
-  <button class="tab-underlined tablinks" onclick="openCity(event, 'PendingRequests')">Pending Bike Requests</button>
+  <ul class="list-inline tabs-underlined justify-content-center">
+    <li class="tab-underlined tablinks" onclick="openCity(event, 'Mybookings')">My Bookings</li>
+    <li class="tab-underlined tablinks" onclick="openCity(event, 'PendingRequests')">Pending Bike Requests</li>
   </ul>
 <div id="Mybookings" class="tabcontent">
     <% @my_booking.each do |booking| %>
@@ -14,32 +14,32 @@
     <div class="card-product-infos">
     <h2><%= link_to booking.bike.title, bike_path(booking.bike)%></h2>
     <p>From <%= p booking.starting_date%> until  <%= p booking.end_date%>, the request is currently <%= booking.confirmation_status %></p>
-    <hr>
-    <%= link_to  "Back", bookings_path, class: "btn btn-success"%>
   </div>
 </div>
     <%end%>
 </div>
+
 <div id="PendingRequests" class="tabcontent">
- <% @booking.each do |booking| %>
-     <div class="card-product m-2">
-    <% if booking.user.photo.attached?%>
-    <%= cl_image_tag booking.user.photo.key %>
-    <% end %>
-    <div class="card-product-infos">
-    <h2><%=booking.user.username%> would like to book your bike <%=booking.bike.title%> </h2>
-    <p>From <%= p booking.starting_date%> until  <%= p booking.end_date%>, the request is currently <%= booking.confirmation_status %></p>
-        <% if booking.confirmation_status == "Pending" ||  booking.confirmation_status == "pending" %>
-      <%= simple_form_for [booking] do |f| %>
-    <%= f.input :confirmation_status, :collection => %w[Pending Confirmed Rejected] %>
-    <%= f.submit 'Send', class: 'btn btn-success' %>
-    <%end%>
-    <% end %>
+      <% @booking.each do |booking| %>
+        <div class="card-product m-2">
+          <% if booking.user.photo.attached?%>
+            <%= cl_image_tag booking.user.photo.key %>
+          <% end %>
+          <div class="card-product-infos">
+            <h2><%=booking.user.username%> would like to book your bike <%=booking.bike.title%> </h2>
+            <p>From <%= p booking.starting_date%> until  <%= p booking.end_date%>, the request is currently <%= booking.confirmation_status %></p>
+          </div>
+              <%# if booking.confirmation_status == "Pending" ||  booking.confirmation_status == "pending" %>
+                <%#= simple_form_for [booking] do |f| %>
+                   <%#= f.input :confirmation_status, :collection => %w[Pending Confirmed Rejected] %>
+                   <%#= f.submit 'Send', class: 'btn btn-success' %>
+                <%# end %>
+              <%# end %>
+        </div>
+      <% end %>
   </div>
-</div> 
-  <%end%>
-</div>
-</div>
+
+
 
 
 
@@ -58,4 +58,4 @@ function openCity(evt, cityName) {
   evt.currentTarget.className += " active";
 }
 </script>
-   
+
