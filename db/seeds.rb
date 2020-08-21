@@ -58,10 +58,18 @@ image_seeds = [
   "https://res.cloudinary.com/dg106nng3/image/upload/v1597837446/bike_seeds/PEDL-Zoomcar_iumr5v.jpg",
   "https://res.cloudinary.com/dg106nng3/image/upload/v1597837446/bike_seeds/EYT6SKrWAAIlP8x_kehiuj.jpg"
 ]
+def range (min, max)
+  rand * (max-min) + min
+end
+@categories = ["eBike", "City Bike","Mountain Bike","Fixed Gear","Road Bike","Trecking Bike","Unicycle"]
+lat_max = 52.5476191
+lat_min = 52.4947306
 
+long_max = 13.2744157
+long_min = 13.4701585
 
 image_seeds.each do |seed|
-  bike = Bike.new(title: Faker::Hipster.word, description: Faker::Hipster.paragraph, user_id: rand(User.first.id..User.last.id))
+  bike = Bike.new(title: Faker::Hipster.word, description: Faker::Hipster.paragraph, user_id: rand(User.first.id..User.last.id),latitude:range(lat_min,lat_max),longitude:range(long_min,long_max),category:@categories.sample,district_id: rand(District.first.id..District.last.id))
   file = URI.open(seed)
   bike.photo.attach(io: file, filename: 'bd.jpg', content_type: 'image/jpg')
   bike.district_id = rand(District.first.id..District.last.id)

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show]
   root to: 'pages#home'
-
+  get 'map', to: 'bikes#map'
   resources :bikes
   resources :bikes do
     resources :bookings, only:[:create,:new,:index,:show]

@@ -1,10 +1,25 @@
 class BikesController < ApplicationController
     skip_before_action :authenticate_user!, only: [ :index ]
 
+
+    def map
+        @bikes = Bike.geocoded # returns flats with coordinates
+        p @bikes
+    
+        @markers = @bikes.map do |bike|
+          {
+            lat: bike.latitude,
+            lng: bike.longitude
+          }
+          authorize @bikes
+
+      end
+    end
+
     def new
         @user = User.find(current_user.id)
         @bike = Bike.new
-        @categories = ["eBike", "City Bike"]
+        @categories = ["eBike", "City Bike","Mountain Bike","Fixed Gear","Road Bike","Trecking Bike","Unicycle"]
         @districts = District.all
         authorize @bike
     end
