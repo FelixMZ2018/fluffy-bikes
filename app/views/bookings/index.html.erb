@@ -2,7 +2,7 @@
   <br>
 
   <ul class="list-inline tabs-underlined justify-content-center">
-    <li class="tab-underlined tablinks" onclick="openCity(event, 'Mybookings')">My Bookings</li>
+    <li class="tab-underlined tablinks" onclick="openCity(event, 'Mybookings')" id="defaultOpen">My Bookings</li>
     <li class="tab-underlined tablinks" onclick="openCity(event, 'PendingRequests')">Pending Bike Requests</li>
   </ul>
 <div id="Mybookings" class="tabcontent">
@@ -57,5 +57,8 @@ function openCity(evt, cityName) {
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
+
+document.getElementById("defaultOpen").click();
+
 </script>
 
